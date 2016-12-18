@@ -1,0 +1,288 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+    $("input:text:visible:first").focus();
+});
+
+function getSyns() {
+    var word = $('#word').val().toLowerCase();
+    console.log(word);
+//    $("#wordR").fadeOut(3000).empty();
+    $("#word").val('');
+
+var fadeInTime = 800;
+var fadeOutTime = 200;
+
+//RIGHT//RIGHT//RIGHT//RIGHT//RIGHT//RIGHT//RIGHT//RIGHT//RIGHT
+
+    $.get( "http://0.0.0.0:9998/get_synonymsR?word_entry=" + word, function( data ) {
+
+
+
+       var listR = [];
+
+            for (var i=0; i < data.length; i++) {
+                //First time through i=0 so arr[i]=[1,2];
+                for (var j=0; j < 1; j++) {
+                        listR.push(data[i][0]);//Handle inner array.
+                    }
+            }
+
+            //  $( "#right_list" ).html( listR );
+
+            $("#wordR").fadeOut(fadeOutTime, function() {
+
+                //var div = document.getElementById('wordR');
+                //div.innerHTML = div.innerHTML + '| '+ word +' |';
+                $("#wordR").html('| '+ word +' |');
+
+                $("#wordR").fadeIn(fadeInTime);
+            });
+
+
+            $("#right_list_text").fadeOut(fadeOutTime, function() {
+
+
+
+                var newHTML = [];
+                $.each(listR, function(index, syn) {
+                    console.log(syn);
+                    newHTML.push('<div class="synDivsR"><li>' + syn + '</li></div><br>');
+                });
+                $("#right_list_text").html(newHTML.join(' '));
+
+                $("#right_list_text").fadeIn(fadeInTime);
+            })
+
+
+
+    });
+
+///LEFT///LEFT///LEFT///LEFT///LEFT///LEFT///LEFT///LEFT
+
+
+
+    $.get( "http://0.0.0.0:9998/get_synonymsL?word_entry=" + word, function( data ) {
+
+
+
+        var listL = [];
+
+             for (var i=0; i < data.length; i++) {
+                 //First time through i=0 so arr[i]=[1,2];
+                 for (var j=0; j < 1; j++) {
+                         listL.push(data[i][0]);//Handle inner array.
+                     }
+             }
+
+             //  $( "#right_list" ).html( listR );
+
+             $("#wordL").fadeOut(fadeOutTime, function() {
+
+                 //var div = document.getElementById('wordR');
+                 //div.innerHTML = div.innerHTML + '| '+ word +' |';
+                 $("#wordL").html('| '+ word +' |');
+
+                 $("#wordL").fadeIn(fadeInTime);
+             });
+
+
+             $("#left_list_text").fadeOut(fadeOutTime, function() {
+
+
+
+                 var newHTML = [];
+                 $.each(listL, function(index, syn) {
+                     console.log(syn);
+                     newHTML.push('<div class="synDivsL"><li>' + syn + '</li></div><br>');
+                 });
+                 $("#left_list_text").html(newHTML.join(' '));
+
+                 $("#left_list_text").fadeIn(fadeInTime);
+             })
+
+
+
+
+
+    });
+};
+
+
+
+// $("#word").keyup(function(event){
+//     if(event.keyCode == 13){
+//         console.log('clicked enter');
+//         $("#enter").click();
+//         getSyns();
+//     }
+// });
+
+
+
+</script>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+        <title>Partisan Thesaurus</title>
+        <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    </head>
+    <body>
+            <div id="wordInput">
+
+                  <input type="text" id="word" class="wordClass" autocomplete="off" placeholder="enter a new word" onkeydown = "if (event.keyCode == 13)
+                  document.getElementById('enter').click()"/>
+
+                  <input type="submit" id="enter" class="button" onclick="getSyns();"/>
+                </div>
+
+<div id="wordL"></div>
+
+                  <div class="Lsyn" id= "left_list">
+                      <div id="left_list_text"></div>
+
+                  </div>
+
+<div id="wordR"></div>
+                  <div class="Rsyn" id= "right_list">
+                       <div id="right_list_text"></div>
+                  </div>
+
+        </div>
+    </body>
+</html>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif');
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    /*background-color: black;*/
+    font-family: 'Libre Baskerville', serif;
+
+    /*font-family: 'Droid Serif', serif;*/
+
+}
+
+#left_list, #right_list {
+    height: 100%;
+    float: left;
+    width: 50%;
+    margin-top: 0%;
+    color: white;
+}
+
+#wordL, #wordR {
+    font-size: 600%;
+    margin:100px;
+    position: absolute;
+    display: inline-block;
+    width: 50%;
+    margin-top: 100px;
+    margin-left: 70px;
+    color: white;
+    z-index: 500;
+    text-shadow: 2px 2px 2px #7e7e7e;
+}
+
+.synDivsR, .synDivsL {
+    position: absolute;
+    padding-left: 80px;
+    margin: 200px;
+    margin-top: 120px;
+    margin-left: 100px;
+    font-size: 320%;
+    /*padding: 10px;*/
+    color: white;
+    text-shadow: 2px 2px 2px #7e7e7e;
+}
+
+
+.Lsyn, .Rsyn {
+        padding-top: 200px;
+        line-height: 70px;
+}
+
+
+
+h1 {
+    color: white;
+}
+
+
+input[type=text] {
+    font-family: 'Libre Baskerville', serif;
+    margin:0px;
+    width: 320px;
+    height: 80px;
+    font-size: 250%;
+    outline: none;
+    position: absolute;
+    /*border-radius: 4px;
+    border-style:solid;*/
+    padding: 4px 10px;
+    color: white;
+    top: 80%;
+    left: 41%;
+    text-align: center;
+    background: url(https://s20.postimg.org/cmxc6rop9/bu_copy.png) no-repeat ;
+    background-size: 320px;
+    box-shadow: 0 0 70px #000;
+        text-shadow: 2px 2px 2px #7e7e7e;
+    /*text-shadow: 2px 2px 2px #7e7e7e;*/
+    border: none;
+/*border-style: solid;*/
+/*border-width: 10px 10px 10px;*/
+/*-moz-border-image: url(https://s20.postimg.org/cmxc6rop9/bu_copy.png) 20 20 20 stretch;
+-webkit-border-image: url(https://s20.postimg.org/cmxc6rop9/bu_copy.png) 20 20 20 stretch;
+-o-border-image: url(https://s20.postimg.org/cmxc6rop9/bu_copy.png) 20 20 20 stretch;*/
+/*border-image: url(https://s20.postimg.org/cmxc6rop9/bu_copy.png) 20 20 20;*/
+/*border-image: url(https://s20.postimg.org/cmxc6rop9/bu_copy.png);*/
+/*border-radius: 40px;*/
+}
+
+/*input[type=text]:hover {
+    border-image: repeating-linear-gradient( 90deg, purple, purple 1%, pink 1%, pink 8%) 10;
+    color: purple;
+}*/
+
+#right_list {
+    /*position: absolute;*/
+    background-color: red;
+    /*margin-left: 40px;*/
+}
+
+#left_list {
+    /*margin:20px;*/
+    background-color: blue;
+}
+
+#enter {
+    display: none;
+}
+
+
+::-webkit-input-placeholder {
+    /*font-style: italic;*/
+    font-size: 80%;
+   color: red;
+   text-shadow: none;
+
+   /*background: -webkit-linear-gradient(#c60001, #0001c6);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;*/
+}
+
+
+</style>
