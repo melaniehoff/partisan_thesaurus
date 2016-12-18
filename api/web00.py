@@ -49,18 +49,6 @@ def index():
     # Render index page:
     return render_template( 'index.html' )
 
-# Define form submission route:
-@app.route('/response', methods=['POST'])
-def response():
-    # Get user's name from submitted form data:
-    word_string = request.form[ 'word_entry' ]
-    # Call the "external function" on the user-submitted data:
-    synonym_list = model.most_similar(positive=[word_string], topn=5)
-    print synonym_list
-    # Render response page (with variables injected):
-    return render_template( 'index.html', word_str = word_string, syn_list = synonym_list )
-    # word_str = word_string, syn_list = synonym_list
-
 
 # Define form submission route:
 @app.route('/get_synonymsR', methods=['GET'])
@@ -69,9 +57,12 @@ def getSynR():
     word_string = request.args.get('word_entry')
     print word_string
     # Call the "external function" on the user-submitted data:
-    synonym_list = modelR.most_similar(positive=[word_string], topn=5)
-    return jsonify(synonym_list)
-    print synonym_list
+
+    try:
+        synonym_list = modelR.most_similar(positive=[word_string], topn=5)
+        return jsonify(synonym_list)
+    except:
+        return ""
 
 
 @app.route('/get_synonymsL', methods=['GET'])
@@ -80,9 +71,11 @@ def getSynL():
     word_string = request.args.get('word_entry')
     print word_string
     # Call the "external function" on the user-submitted data:
-    synonym_list = modelL.most_similar(positive=[word_string], topn=5)
-    return jsonify(synonym_list)
-    print synonym_list
+    try:
+        synonym_list = modelL.most_similar(positive=[word_string], topn=5)
+        return jsonify(synonym_list)
+    except:
+        return ""
 
 
 # Run app:

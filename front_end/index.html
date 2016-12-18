@@ -21,7 +21,7 @@ var fadeOutTime = 200;
 
     $.get( "http://107.170.164.22:9998/get_synonymsR?word_entry=" + word, function( data ) {
 
-
+        console.log(data);
 
        var listR = [];
 
@@ -183,7 +183,24 @@ html, body {
     color: white;
 }
 
-#wordL, #wordR {
+#left_list {
+    text-align: right;
+}
+
+#wordL {
+    font-size: 600%;
+    margin:100px;
+    position: absolute;
+    display: inline-block;
+    width: 50%;
+    margin-top: 100px;
+    margin-left: 70px;
+    color: white;
+    z-index: 500;
+    text-shadow: 2px 2px 2px #7e7e7e;
+}
+
+#wordR {
     font-size: 600%;
     margin:100px;
     position: absolute;
