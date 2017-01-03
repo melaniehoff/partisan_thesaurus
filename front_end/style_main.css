@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif');
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    /*background-color: black;*/
+    font-family: 'Libre Baskerville', serif;
+    /*background-image: url(https://s20.postimg.org/kodctff4d/redblue_new_bg01.png);*/
+    /*background-image: url(https://s20.postimg.org/obt3zhnbh/redblue_new_bg_purple03.png);*/
+
+    /*font-family: 'Droid Serif', serif;*/
+    z-index: 0;
+
+}
+
+#left_list, #right_list, #left_list_background, #right_list_background {
+    margin:0;padding:0;height:100%;
+    float: left;
+    width: 50%;
+    margin-top: 0%;
+    font-size: 3.3vw;
+    z-index: 5;
+}
+
+
+#left_list {
+    text-align: right;
+    /*background-color: #2A65F2;*/
+    /*background-color: #033fea;*/
+    /*background-color: #0e5ece;*/
+    /*background: linear-gradient(#0065f3, #5b3bd3);*/
+    /*background: linear-gradient(#0065f3, #0092f9);*/
+}
+
+.fullscreen {
+    width:100%;
+    margin:0;padding:0;
+    height:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#lists {
+    z-index: 100;
+}
+
+#left_list_background {
+    background: linear-gradient(#0065f3, #0092f9);
+}
+
+#right_list_background {
+    background: linear-gradient(#ce1e0e, #cd372b);
+}
+
+#right_list {
+    /*background-color: #F91F1F;*/
+    /*background-color: #ea030a;*/
+    /*background-color: #ce1e0e;*/
+    /*background: linear-gradient(#ce1e0e, #cd372b);*/
+}
+
+#left_list_text, #right_list_text {
+    padding-left: 50px;
+    padding-right: 50px;
+    /*padding: 60px;*/
+    color: white;
+    z-index: 50;
+}
+
+#left_list_text {
+    text-shadow: 2px 2px 10px red;
+}
+
+#right_list_text {
+    text-shadow: 2px 2px 10px #0072f5;
+}
+
+
+#wordL {
+    /*text-align: right;*/
+    font-size: 5.3vw;
+    margin-top: 70px;
+    padding: 60px;
+    color: white;
+    z-index: 500;
+    text-shadow: 2px 2px 15px red;
+}
+
+#wordR {
+    font-size: 5.3vw;
+    padding: 60px;
+    margin-top: 70px;
+    color: white;
+    z-index: 500;
+    text-shadow: 2px 2px 15px #0072f5;
+}
+
+.synDivsR, .synDivsL {
+    /*position: absolute;*/
+    display: inline;
+    padding-left: 0px;
+    /*margin: 200px;*/
+    /*margin-top: 120px;*/
+    margin-left: 0px;
+    /*padding: 10px;*/
+
+}
+
+.na {
+
+    padding-top: 90px;
+
+}
+
+
+
+
+.Lsyn, .Rsyn {
+        padding-top: 220px;
+        line-height: 70px;
+        z-index: 50;
+}
+
+#iconL {
+    width: 580px;
+    padding-top: 10px;
+     position: absolute;
+     margin-left: -290px;
+    margin-top: 0px;
+    /* left: 50%; */
+    z-index: 100;
+    left:50%;
+
+
+    }
+
+
+
+
+h1 {
+    color: white;
+}
+
+
+input[type=text] {
+    border-radius: 4px;
+    display: none;
+    font-family: 'Libre Baskerville', serif;
+    width: 320px;
+    height: 80px;
+    font-size: 250%;
+    outline: none;
+    position: absolute;
+    padding: 4px 10px;
+    color: white;
+    top: 90%;
+    left:50%;
+    margin-top:-40px; /* this is half the height of your div*/
+    margin-left:-170px; /*this is half of width of your div*/
+    text-align: center;
+    /*background: url(https://s20.postimg.org/o2qxvtl59/redblue_new_input00.jpg) no-repeat ;
+    background-size: 340px;*/
+    background: linear-gradient(to right, #cd3528, #008ef8);
+    box-shadow: 0 0 70px #000;
+    text-shadow: 2px 2px 2px #7e7e7e;
+    border: none;
+    z-index: 2000;
+
+}
+
+input[type=text]:hover {
+
+    box-shadow: 0 0 70px #000;
+}
+
+
+#enter {
+    display: none;
+}
+
+
+::-webkit-input-placeholder {
+    /*font-style: italic;*/
+    font-size: 80%;
+   color: #a7a7a7;
+   text-shadow: none;
+}
+
+
+div {
+    /*transition: all 0.2s ease-in-out;*/
+
+}
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+
+@media only screen and (max-width: 500px) {
+
+    #left_list_text, #right_list_text {
+        padding-left: 20px;
+        padding-top: 50px;
+        padding-right: 20px;
+    }
+
+
+    #wordL {
+        font-size: 6vw;
+        margin-right:15px;
+        margin-top: 50px;
+        z-index: 500;
+        padding: 0px;
+    }
+
+    #wordR {
+        font-size: 6vw;
+        margin-left:15px;
+        margin-top: 50px;
+        z-index: 500;
+        padding: 0px;
+    }
+
+    #left_list, #right_list {
+        font-size: 4.5vw;
+        padding-top: 140px;
+
+    }
+
+    .synDivsR, .synDivsL {
+        /*font-size: 4.5vw;
+        /*padding: 10px;*/
+        /*color: white;*/
+    }
+
+    .synDivsL {
+
+    }
+
+    .synDivsR {
+    }
+
+    .Lsyn, .Rsyn {
+            /*padding-top: 100px;*/
+            line-height: 30px;
+    }
+
+    input[type=text] {
+        font-family: 'Libre Baskerville', serif;
+        width:  200px;
+        height: 45px;
+        font-size: 140%;
+        outline: none;
+        position: absolute;
+        /*padding: 4px 10px;*/
+        color: white;
+        top: 64%;
+        left:50%;
+        margin-left:-110px; /*this is half of width of your div*/
+        text-align: center;
+        /*background: url(https://s20.postimg.org/cmxc6rop9/bu_copy.png) no-repeat ;*/
+        background: linear-gradient(to right, #ce1e0e, #0065f3);
+        box-shadow: 0 0 40px #000;
+        text-shadow: 2px 2px 2px #7e7e7e;
+        border: none;
+
+    }
+
+    ::-webkit-input-placeholder {
+        /*font-style: italic;*/
+        font-size: 100%;
+       text-shadow: none;
+       color: #a7a7a7;
+    }
+
+    #iconL {
+        width: 150px;
+        padding-top: 10px;
+         position: absolute;
+         margin-left: -75px;
+        margin-top: 0px;
+        /* left: 50%; */
+        z-index: 100;
+        left:50%;
+        }
+
+}

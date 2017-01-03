@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="style_main.css" />
+<link rel="stylesheet" type="text/css" href="style_about.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
+<script type="text/javascript">
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+
+    document.getElementById('light').style.display='block';
+    document.getElementById('fade').style.display='block';
+
+
+    // //ERASE THIS FOR REAL MODE!!!!
+    // document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none';
+    // //ERASE THIS FOR REAL MODE!!!!
+    // show_input();
+
+});
+
+function show_input() {
+
+
+    $("#light").fadeOut(400);
+    $("#fade").fadeOut(400);
+    $("#word").fadeIn(400);
+    $("input:text:visible:first").focus();
+
+
+}
+
+
+
+
+function getSyns() {
+    $("#word").blur(); //hides keyboard on mobile
+    window.scrollTo(0, 0);
+    var word = $('#word').val().toLowerCase();
+    console.log(word);
+//    $("#wordR").fadeOut(3000).empty();
+    $("#word").val('');
+
+var fadeInTime = 800;
+var fadeOutTime = 200;
+
+//RIGHT//RIGHT//RIGHT//RIGHT//RIGHT//RIGHT//RIGHT//RIGHT//RIGHT
+
+    $.get( "http://107.170.164.22:9998/get_synonymsR?word_entry=" + word, function( data ) {
+
+        console.log(data);
+
+       var listR = [];
+
+            for (var i=0; i < data.length; i++) {
+                //First time through i=0 so arr[i]=[1,2];
+                for (var j=0; j < 1; j++) {
+                        listR.push(data[i][0]);//Handle inner array.
+                    }
+            }
+
+            //  $( "#right_list" ).html( listR );
+
+            $("#wordR").fadeOut(fadeOutTime, function() {
+
+                //var div = document.getElementById('wordR');
+                //div.innerHTML = div.innerHTML + '| '+ word +' |';
+                $("#wordR").html('|&nbsp;'+ word +'&nbsp;|');
+
+                $("#wordR").fadeIn(fadeInTime);
+            });
+
+
+            $("#right_list_text").fadeOut(fadeOutTime, function() {
+
+
+                if (data == ""){
+                    var newHTML = [];
+                        newHTML.push('<div class="synDivsR na" style="font-size:400%;">   N/A</div>');
+
+                     $("#right_list_text").html(newHTML.join(' '));
+                } else {
+                    var newHTML = [];
+                    $.each(listR, function(index, syn) {
+                        // console.log(syn);
+                        newHTML.push('<div class="synDivsR">' + syn + '</div>');
+                    });
+                    $("#right_list_text").html(newHTML.join(', '));
+                }
+
+                $("#right_list_text").fadeIn(fadeInTime);
+            })
+    });
+
+///LEFT///LEFT///LEFT///LEFT///LEFT///LEFT///LEFT///LEFT
+
+    $.get( "http://107.170.164.22:9998/get_synonymsL?word_entry=" + word, function( data ) {
+
+
+
+        var listL = [];
+
+             for (var i=0; i < data.length; i++) {
+                 //First time through i=0 so arr[i]=[1,2];
+                 for (var j=0; j < 1; j++) {
+                         listL.push(data[i][0]);//Handle inner array.
+                     }
+             }
+
+             //  $( "#right_list" ).html( listR );
+
+             $("#wordL").fadeOut(fadeOutTime, function() {
+
+                 //var div = document.getElementById('wordR');
+                 //div.innerHTML = div.innerHTML + '| '+ word +' |';
+                 $("#wordL").html('|&nbsp;'+ word +'&nbsp;|');
+
+                 $("#wordL").fadeIn(fadeInTime);
+             });
+
+
+             $("#left_list_text").fadeOut(fadeOutTime, function() {
+
+
+                 if (data == ""){
+                     var newHTML = [];
+                         newHTML.push('<div class="synDivsL na" style="font-size:400%;">   N/A</div>');
+
+                      $("#left_list_text").html(newHTML.join(' '));
+                 } else {
+                     var newHTML = [];
+
+                     $.each(listL, function(index, syn) {
+                         console.log(syn);
+
+
+
+
+                         newHTML.push('<div class="synDivsL">' + syn + '</div>');
+                     });
+
+
+                     $("#left_list_text").html(newHTML.join(', '));
+
+
+                 }
+
+                 $("#left_list_text").fadeIn(fadeInTime);
+             })
+
+
+
+
+
+    });
+
+
+    $("#word").attr("placeholder", "enter a new word").val("").focus();
+
+};
+</script>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+        <title>Partisan Thesaurus</title>
+        <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <img id="iconL" src="split02.png"/></img>
+
+        <div id="wordInput">
+          <input type="text" id="word" class="wordClass" autocomplete="off" placeholder="enter a word" onkeydown = "if (event.keyCode == 13)
+          document.getElementById('enter').click()"/>
+          <input type="submit" id="enter" class="button" onclick="getSyns()"/>
+        </div>
+
+        <div id="lists" class="fullscreen">
+             <div class="Lsyn" id= "left_list">
+                  <div id="wordL"></div>
+                  <div id="left_list_text"></div>
+             </div>
+
+             <div class="Rsyn" id= "right_list"><div id="wordR"></div>
+                    <div id="right_list_text"></div>
+             </div>
+        </div>
+
+         <div id="list_backgrounds" class="fullscreen">
+             <div id= "left_list_background"></div>
+             <div id= "right_list_background"></div>
+         </div>
+
+
+
+
+
+<!-- MENUMENUMENUMENUMENUMENUMENUMENUMENUMENUMENUMENUMENUMENUMENUMENUMENUMENU 7f0080-->
+
+    <!-- <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">About</a> -->
+
+    <div id="light" class="white_content"><a href="javascript:void(0)" class="close"  onclick="show_input();"></a>
+<p id="aboutText"><span style="font-size:200%;text-shadow: 0px 0px 20px black;">Partisan Thesaurus</span><br><br>Partisan Thesaurus is a pair of thesauruses. One blue, one red. The blue thesaurus generates synonyms using a machine learning algorithm that was trained  only on a corpus of liberal-leaning texts. The red thesaurus generates synonyms using a machine learning algorithm that was trained  only on a corpus of conservative-leaning texts.<br><br><br>Created by Melanie Hoff</p>
+<button class="button" onclick="show_input();">&#10031;</button>
+<a href="https://docs.google.com/spreadsheets/d/1xFwurDmOY9_roDHY5TwTq6Pt-CI5dWlHy33mrt4OwcA/edit?usp=sharing" class="info"><br><i>i</i></a>
+
+<!-- <a class="info" href="https://docs.google.com/spreadsheets/d/1xFwurDmOY9_roDHY5TwTq6Pt-CI5dWlHy33mrt4OwcA/edit?usp=sharing"><i>i</i></a> -->
+
+    </div>
+    <div id="fade" class="black_overlay"></div>
+
+
+    </body>
+</html>

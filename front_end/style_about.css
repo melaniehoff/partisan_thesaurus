@@ -1,0 +1,145 @@
+
+.black_overlay {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1098;
+  -moz-opacity: 0.5;
+  opacity: .50;
+  filter: alpha(opacity=50);
+}
+.white_content {
+  /*font-family: Helvetica, Arial, sans-serif;*/
+  /*text-shadow: 2px 2px 2px #7e7e7e;*/
+  text-align: center;
+  display: none;
+  color:white;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: absolute;
+  top: 6%;
+  left: calc(25% - 60px);
+  width: 50%;
+  /*height: 50%;*/
+  padding: 60px;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  border-radius: 4px;
+  /*background: url(https://s20.postimg.org/5tfknrqrx/redblue_aboutbg.png) no-repeat ;*/
+  /*background: url(https://s20.postimg.org/yydqdfgp9/redbluehardline.png) no-repeat ;*/
+  background: linear-gradient(to right, #0072f5, #ce2313);
+  background-size: 100%;
+  /*background: rgb(204, 204, 204);
+  background: rgba(60, 60, 60, 0.5);*/
+  z-index: 1099;
+  box-shadow: 0 0 90px #000;
+
+}
+
+#light {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#titleimg {
+    width:230px;
+
+}
+
+#aboutText {
+    font-size: 150%;
+      z-index: 2000;
+
+}
+
+.button {
+    background-color: #654b86;
+    border: none;
+    color: white;
+    border: none;
+
+    border-radius: 50%;
+    padding: 0px 30px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 0 70px #000;
+    font-size: 400%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button:focus {outline:0 !important;}
+
+.button:hover {
+    color: #0072f5;
+    box-shadow: 0 0 90px #ce2313;
+}
+
+
+.close:before {
+    font-family: Arial, sans-serif;
+    text-shadow: none;
+    font-size: 140%;
+    position: absolute;
+    cursor: pointer;
+        color: white;
+        top: 10px;
+        right: 10px;
+    content: 'X';
+    z-index: 2001;
+}
+
+.info {
+    position: absolute;
+    text-decoration: none;
+    text-shadow: none;
+    font-size: 140%;
+    cursor: pointer;
+        color: white;
+        bottom: 10px;
+        right: 15px;
+    z-index: 2001;
+}
+
+
+.info:hover {
+    color: #0072f5;
+}
+
+
+
+
+@media only screen and (max-width: 500px) {
+
+    .white_content {
+    width: 80%;
+    font-size: 55%;
+    padding:20px;
+    left: calc(10% - 20px);
+    top: 6%;
+
+    }
+
+    .link {
+        font-size: 49%;
+    }
+
+
+
+    .black_overlay {
+      width: 100%;
+
+    }
+
+    /*.link{
+        text-shadow: 0px 0px 8px blue;
+
+    }*/
+
+}
