@@ -157,7 +157,7 @@ input[type=text] {
     position: absolute;
     padding: 4px 10px;
     color: white;
-    top: 90%;
+    top: 64%;
     left:50%;
     margin-top:-40px; /* this is half the height of your div*/
     margin-left:-170px; /*this is half of width of your div*/
@@ -200,6 +200,19 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
 
+@media only screen and (min-width: 500px) {
+    input[type=text] {
+        top: 94%;
+    }
+
+
+}
+
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+// when mobile
 @media only screen and (max-width: 500px) {
 
     #left_list_text, #right_list_text {
@@ -250,23 +263,13 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
     }
 
     input[type=text] {
-        font-family: 'Libre Baskerville', serif;
+
         width:  200px;
         height: 45px;
         font-size: 140%;
-        outline: none;
-        position: absolute;
-        /*padding: 4px 10px;*/
-        color: white;
         top: 64%;
         left:50%;
         margin-left:-110px; /*this is half of width of your div*/
-        text-align: center;
-        /*background: url(https://s20.postimg.org/cmxc6rop9/bu_copy.png) no-repeat ;*/
-        background: linear-gradient(to right, #ce1e0e, #0065f3);
-        box-shadow: 0 0 40px #000;
-        text-shadow: 2px 2px 2px #7e7e7e;
-        border: none;
 
     }
 
