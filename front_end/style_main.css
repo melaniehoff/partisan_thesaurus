@@ -157,7 +157,7 @@ input[type=text] {
     position: absolute;
     padding: 4px 10px;
     color: white;
-    top: 64%;
+    top: 90%;
     left:50%;
     margin-top:-40px; /* this is half the height of your div*/
     margin-left:-170px; /*this is half of width of your div*/
@@ -199,14 +199,6 @@ div {
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
-
-@media only screen and (min-width: 500px) {
-    input[type=text] {
-        top: 94%;
-    }
-
-
-}
 
 /*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
