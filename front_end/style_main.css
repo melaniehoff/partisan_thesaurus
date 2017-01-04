@@ -204,7 +204,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
-// when mobile
+
 @media only screen and (max-width: 500px) {
 
     #left_list_text, #right_list_text {
@@ -259,7 +259,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
         width:  200px;
         height: 45px;
         font-size: 140%;
-        top: 64%;
+        top: 84%;
         left:50%;
         margin-left:-110px; /*this is half of width of your div*/
 
