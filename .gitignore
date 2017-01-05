@@ -2,3 +2,4 @@ saved_model*
 api/logs/
 api/python_virtualenv
 api/word2vecVenv/
+*.pyc
