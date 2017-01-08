@@ -49,11 +49,13 @@ html, body {
 }
 
 #left_list_background {
-    background: linear-gradient(#0065f3, #0092f9);
+    background: linear-gradient(#0065f3, #0087f8);
+    /*background: #0078f6;*/
 }
 
 #right_list_background {
     background: linear-gradient(#ce1e0e, #cd372b);
+    /*background: #cc3124;*/
 }
 
 #right_list {
@@ -164,7 +166,8 @@ input[type=text] {
     text-align: center;
     /*background: url(https://s20.postimg.org/o2qxvtl59/redblue_new_input00.jpg) no-repeat ;
     background-size: 340px;*/
-    background: linear-gradient(to right, #cd3528, #008ef8);
+    /*background: linear-gradient(to right, #cd3528, #008ef8);*/
+    background: linear-gradient(to right, #cc3124, #0078f6);
     box-shadow: 0 0 70px #000;
     text-shadow: 2px 2px 2px #7e7e7e;
     border: none;
@@ -186,7 +189,7 @@ input[type=text]:hover {
 ::-webkit-input-placeholder {
     /*font-style: italic;*/
     font-size: 80%;
-   color: #a7a7a7;
+   color: #514545;
    text-shadow: none;
 }
 
@@ -209,7 +212,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
 
     #left_list_text, #right_list_text {
         padding-left: 20px;
-        padding-top: 50px;
+        padding-top: 0px;
         padding-right: 20px;
     }
 
@@ -232,7 +235,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
 
     #left_list, #right_list {
         font-size: 4.5vw;
-        padding-top: 140px;
+        padding-top: 50px;
 
     }
 
@@ -269,14 +272,13 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
         /*font-style: italic;*/
         font-size: 100%;
        text-shadow: none;
-       color: #a7a7a7;
     }
 
     #iconL {
-        width: 150px;
+        width: 350px;
         padding-top: 10px;
          position: absolute;
-         margin-left: -75px;
+         margin-left: -175px;
         margin-top: 0px;
         /* left: 50%; */
         z-index: 100;

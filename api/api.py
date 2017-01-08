@@ -59,6 +59,21 @@ def getSynL():
         return ""
 
 
+
+@app.route('/get_phraseL', methods=['GET'])
+def getphraseL():
+    # Get user's name from submitted form data:
+    phrase_string = request.args.get('phrase_entry')
+    print phrase_string
+    ## Call the "external function" on the user-submitted data:
+    # try:
+    #     synonym_list = modelL.most_similar(positive=[word_string], topn=5)
+    #     return jsonify(synonym_list)
+    # except:
+    return phrase_string
+
+
+
 # Run app:
 if __name__ == '__main__':
     # word2v00.run()
