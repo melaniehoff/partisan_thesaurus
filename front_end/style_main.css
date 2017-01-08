@@ -189,7 +189,7 @@ input[type=text]:hover {
 ::-webkit-input-placeholder {
     /*font-style: italic;*/
     font-size: 80%;
-   color: #514545;
+   color: #9f9494;
    text-shadow: none;
 }
 
