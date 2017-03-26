@@ -56,6 +56,25 @@
 
 }
 
+#corpus {
+    color: white; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #0072f5 , #ce2313); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #0072f5, #ce2313); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #0072f5, #ce2313); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #0072f5 , #ce2313); /* Standard syntax */
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 0px 44px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 44px -3px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 44px -3px rgba(0,0,0,0.75);
+    text-decoration: none;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#corpus:hover {
+    box-shadow: none;
+}
+
 .button {
     background-color: #654b86;
     border: none;
@@ -96,6 +115,7 @@
 }
 
 .info {
+    display: none;
     position: absolute;
     text-decoration: none;
     text-shadow: none;
